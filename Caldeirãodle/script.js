@@ -46,9 +46,9 @@ const amigues = [
     },
     {
         nome: "Thales",
-        dataNasc: 2008,
+        dataNasc: 1995,
         região: "Porto Alegre",
-        signo: "",
+        signo: "Virgem",
         mainLol: "Aposentado",
         estadoCivil: "Solteiro",
         fazOq: "Trabalha",
