@@ -92,7 +92,7 @@ const amigues = [
     {
         nome: "Jãozin",
         dataNasc: 2009,
-        signo: "",
+        signo: "Escorpião",
         região: "Brasília",
         mainLol: "Jg",
         estadoCivil: "Solteiro",
