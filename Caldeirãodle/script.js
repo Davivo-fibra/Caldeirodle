@@ -105,7 +105,7 @@ const amigues = [
         signo: "Virgem",
         mainLol: "Top",
         estadoCivil: "Solteiro",
-        fazOq: "Estuda",
+        fazOq: "Trabalha",
     },
     {
         nome: "Rafinha",
