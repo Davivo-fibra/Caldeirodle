@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caldeirãodle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game">
+        <div id="message" style="font-size: 40px; color: #1aff00; margin-top: 10px;"></div>
+        <h1>CALDEIRÃODLE</h1>
+        <input type="text" id="chuteInput" placeholder="Digite o nome do personagem" oninput="showSuggestions()" autocomplete="off">
+        <ul id="suggestions" style="list-style-type: none; padding: 0;"></ul>
+        <button onclick="checkChute()">Chutar</button>
+        
+        <table id="feedbackTable">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Ano de Nascimento</th>
+                    <th>Região</th>
+                    <th>Main do LoL</th>
+                    <th>Estado Civil</th>
+                    <th>Faz oq da Vida</th>
+                    <th>Signo</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button id="resetButton" style="display: none;" onclick="resetGame()">Reiniciar Jogo</button> 
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
