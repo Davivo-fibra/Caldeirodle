@@ -117,34 +117,42 @@ const amigues = [
     }
 ];
 
+// Seleciona aleatoriamente um dos amigos para ser o "amigue" do jogo
 let amigue = amigues[Math.floor(Math.random() * amigues.length)];
 
+// Função para verificar o chute do usuário
 function checkChute() {
+    // Obtém o valor do chute e a tabela de feedback
     const chuteInput = document.getElementById("chuteInput").value;
     const feedbackTable = document.getElementById("feedbackTable").getElementsByTagName("tbody")[0];
     const messageDiv = document.getElementById("message");
     const resetButton = document.getElementById("resetButton");
 
+    // Busca o personagem correspondente ao nome chutado
     const guessedCharacter = amigues.find(char => char.nome.toLowerCase() === chuteInput.toLowerCase());
 
+    // Se o personagem for encontrado, exibe as informações comparadas
     if (guessedCharacter) {
         const newRow = feedbackTable.insertRow();
 
+        // Cria uma célula para o nome
         let cellNome = newRow.insertCell();
         cellNome.textContent = guessedCharacter.nome;
 
+        // Cria uma célula para a data de nascimento
         let cellDataNasc = newRow.insertCell();
         if (guessedCharacter.dataNasc === amigue.dataNasc) {
             cellDataNasc.textContent = guessedCharacter.dataNasc;
-            cellDataNasc.className = "acerto";
+            cellDataNasc.className = "acerto"; // Acertou a data
         } else if (Math.abs(guessedCharacter.dataNasc - amigue.dataNasc) <= 1) {
             cellDataNasc.textContent = guessedCharacter.dataNasc;
-            cellDataNasc.className = "perto";
+            cellDataNasc.className = "perto"; // Erro pequeno
         } else {
             cellDataNasc.textContent = guessedCharacter.dataNasc;
-            cellDataNasc.className = "errado"; 
+            cellDataNasc.className = "errado"; // Erro grande
         }
 
+        // Cria células para as outras propriedades
         let cellRegião = newRow.insertCell();
         cellRegião.textContent = guessedCharacter.região;
         cellRegião.className = guessedCharacter.região === amigue.região ? "acerto" : "errado";
@@ -165,24 +173,33 @@ function checkChute() {
         cellsigno.textContent = guessedCharacter.signo;
         cellsigno.className = guessedCharacter.signo === amigue.signo ? "acerto" : "errado";
 
+        // Se o nome do personagem adivinhado for igual ao do "amigue", exibe mensagem de vitória
         if (guessedCharacter.nome === amigue.nome) {
             messageDiv.textContent = "BOA DOG, TA SABENDO LEGAL"; 
-            resetButton.style.display = ""; 
+            resetButton.style.display = ""; // Exibe o botão de reset
         }
     } else {
+        // Caso o nome não exista, exibe alerta
         alert("Esse nome não pertence ao Caldeirão");
     }
+
+    // Limpa o campo de input após o chute
     document.getElementById("chuteInput").value = "";
 }
 
+// Função para mostrar sugestões de nomes enquanto o usuário digita
 function showSuggestions() {
     const chuteInput = document.getElementById("chuteInput").value.toLowerCase();
     const suggestionsList = document.getElementById("suggestions");
 
+    // Limpa a lista de sugestões anteriores
     suggestionsList.innerHTML = "";
 
+    // Se houver algo digitado, filtra os nomes dos amigos que começam com a palavra digitada
     if (chuteInput) {
         const suggestions = amigues.filter(char => char.nome.toLowerCase().startsWith(chuteInput));
+
+        // Para cada sugestão, cria um botão para o nome
         suggestions.forEach(char => {
             const button = document.createElement("button");
             button.textContent = char.nome;
@@ -194,11 +211,19 @@ function showSuggestions() {
     }
 }
 
+// Função para resetar o jogo e escolher um novo "amigue"
 function resetGame() {
+    // Escolhe um novo "amigue" aleatoriamente
     amigue = amigues[Math.floor(Math.random() * amigues.length)];
+
+    // Limpa o campo de input e a lista de sugestões
     document.getElementById("chuteInput").value = "";
     document.getElementById("suggestions").innerHTML = "";
+
+    // Limpa a tabela de feedback
     document.getElementById("feedbackTable").getElementsByTagName("tbody")[0].innerHTML = "";
+
+    // Limpa a mensagem e esconde o botão de reset
     document.getElementById("message").textContent = "";
     document.getElementById("resetButton").style.display = "none"; 
 }
