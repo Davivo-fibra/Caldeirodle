@@ -1,5 +1,11 @@
-Caso alguém esteja lendo estas palavras, que compreenda: o Caldeirão vai muito além de ser apenas
-um servidor. É uma família, uma das mais belas e acolhedoras que se poderia encontrar. Aqui, cada
-membro traz consigo histórias, risadas e apoio, transformando esse espaço em um lar
-compartilhado. Juntos, enfrentamos desafios, celebramos conquistas e criamos laços que
-ultrapassam a tela. O Caldeirão é, acima de tudo, um refúgio de amizade e união.
+Jogo de Adivinhação - Caldeirão
+
+Este é um simples jogo de adivinhação desenvolvido em JavaScript, HTML e CSS. O jogo apresenta um conjunto de personagens com características específicas, e o objetivo do jogador é adivinhar o personagem correto com base nas dicas fornecidas pelo jogo.
+
+## Funcionalidades
+
+- O jogo escolhe um personagem aleatório do conjunto de personagens.
+- O jogador precisa adivinhar o personagem correto com base nas características fornecidas.
+- O jogo fornece feedback para o jogador a cada tentativa, destacando as características corretas e incorretas.
+- O jogo sugere possíveis nomes de personagens enquanto o jogador digita.
+- Após acertar, o jogador pode reiniciar o jogo.
